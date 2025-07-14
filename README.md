@@ -16,6 +16,7 @@
 - [🚀 Running the Application](#-running-the-application)
 - [🤝 Contributing](#-contributing)
 - [📄 License](#-license)
+- [🚀 Roadmap & Ideas for Improvement](#-roadmap-ideas-for-improvement)
 
 ## 🎯 Description
 
@@ -385,6 +386,33 @@ chore: maintenance tasks
 ## 📄 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 🚀 Roadmap & Ideas for Improvement
+
+This template is designed to be a living project and welcomes suggestions and contributions for new features and improvements. Here are some ideas and known areas for future enhancement:
+
+- **Integrated ZK Parameter Management:**
+  - Instead of requiring a manual script, the ZK parameters could be downloaded automatically as part of the Docker image or build process.
+  - The infrastructure could check for missing parameters and fetch them on demand.
+- **Better Developer Onboarding:**
+  - Add interactive setup scripts or a CLI wizard for first-time setup.
+  - Provide more example contracts, API endpoints, and UI components.
+- **Automated Environment Checks:**
+  - Add pre-build checks for required tools, environment variables, and folder structure.
+- **Improved Error Handling:**
+  - More descriptive error messages and troubleshooting guides for common issues.
+- **Template Customization Tools:**
+  - Scripts to easily rename the template, update package names, and clean up example files.
+- **CI/CD Integration:**
+  - Add GitHub Actions or other CI pipelines for automated testing, linting, and deployment.
+- **Documentation Enhancements:**
+  - More diagrams, architecture overviews, and real-world usage examples.
+- **Community Feedback:**
+  - Encourage users to open issues or discussions for feature requests and pain points.
+- **Unified CLI/Library for Project Management:**
+  - Create a library or CLI tool to automate all setup, configuration, and project management from a single command (e.g., `midnight-quick-starter init`).
+
+> **Have an idea?** Open an issue or pull request to help make this template even better!
 
 ---
 
