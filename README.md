@@ -93,7 +93,34 @@ cd midnight-quick-starter
 yarn install
 ```
 
-### 3. Configure Environment Variables
+### 3. Download and Prepare ZK Parameters (Required for Proofs)
+
+Before building, you need to fetch the zero-knowledge (ZK) parameters required by the proof server. This is done via a helper script that you should place in the CLI package:
+
+```bash
+# Move to the CLI package directory
+cd packages/cli
+
+# Download the fetch-zk-params.sh script
+curl -O https://raw.githubusercontent.com/bricktowers/midnight-proof-server/main/fetch-zk-params.sh
+# or
+wget https://raw.githubusercontent.com/bricktowers/midnight-proof-server/main/fetch-zk-params.sh
+
+# Give execution permissions
+chmod +x fetch-zk-params.sh
+
+# Run the script to download ZK parameters
+./fetch-zk-params.sh
+```
+
+> **Note:**
+> - This script will generate a folder at `/.cache/midnight/zk-params` with all the required parameters for zero-knowledge proofs.
+> - **Why is this needed?** If you see an error like:
+>   `Error in response: Proving(public parameters for k=16 not found in cache)`
+>   it means the required parameters are missing.
+> - **This script is a workaround** to ensure your application works locally. The Midnight team is working on a more integrated solution for parameter management in the future.
+
+### 4. Configure Environment Variables
 
 You have two options to configure the `COMPACT_HOME` variable:
 
@@ -140,7 +167,7 @@ set COMPACT_HOME=/path/to/compact
 echo "COMPACT_HOME=/path/to/compact" > .env
 ```
 
-### 4. Build All Packages
+### 5. Build All Packages
 
 ```bash
 # Build all packages (creates necessary folders automatically)
