@@ -244,6 +244,12 @@ cli/
 
 To quickly find areas that need customization, search for `TODO` comments throughout the codebase:
 
+**Using your code editor's global search:**
+- **VS Code:** `Ctrl+Shift+F` (or `Cmd+Shift+F` on Mac) and search for `TODO`
+- **WebStorm/IntelliJ:** `Ctrl+Shift+F` and search for `TODO`
+- **Sublime Text:** `Ctrl+Shift+F` and search for `TODO`
+
+**Using command line:**
 ```bash
 # Search for all TODO comments
 grep -r "TODO" .
