@@ -182,36 +182,7 @@ yarn build:all
 > - Builds the API package (TypeScript compilation)
 > - Builds the CLI package (TypeScript compilation)
 > - Builds the UI package (Vite build with contract assets)
-> - Creates necessary dummy folders for frontend compatibility
-
-## 📖 Basic Usage
-
-### Individual Package Build
-
-```bash
-# Build contract package
-cd packages/contract
-npx turbo run build
-
-# Build API package
-cd packages/api
-npx turbo run build
-
-# Build CLI package
-cd packages/cli
-npx turbo run build
-
-# Build UI package
-cd packages/ui
-npx turbo run build
-```
-
-### Clean Commands
-
-```bash
-# Clean cache if build fails
-yarn clean:cache
-```
+> - Creates necessary folders for frontend compatibility
 
 ## 🏛️ Project Structure
 
@@ -391,26 +362,40 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 This template is designed to be a living project and welcomes suggestions and contributions for new features and improvements. Here are some ideas and known areas for future enhancement:
 
-- **Integrated ZK Parameter Management:**
-  - Instead of requiring a manual script, the ZK parameters could be downloaded automatically as part of the Docker image or build process.
-  - The infrastructure could check for missing parameters and fetch them on demand.
-- **Better Developer Onboarding:**
-  - Add interactive setup scripts or a CLI wizard for first-time setup.
-  - Provide more example contracts, API endpoints, and UI components.
-- **Automated Environment Checks:**
-  - Add pre-build checks for required tools, environment variables, and folder structure.
-- **Improved Error Handling:**
-  - More descriptive error messages and troubleshooting guides for common issues.
-- **Template Customization Tools:**
-  - Scripts to easily rename the template, update package names, and clean up example files.
-- **CI/CD Integration:**
-  - Add GitHub Actions or other CI pipelines for automated testing, linting, and deployment.
-- **Documentation Enhancements:**
-  - More diagrams, architecture overviews, and real-world usage examples.
-- **Community Feedback:**
-  - Encourage users to open issues or discussions for feature requests and pain points.
-- **Unified CLI/Library for Project Management:**
-  - Create a library or CLI tool to automate all setup, configuration, and project management from a single command (e.g., `midnight-quick-starter init`).
+- [ ] **Integrated ZK Parameter Management:**  
+  Instead of requiring a manual script, the ZK parameters could be downloaded automatically as part of the Docker image or build process.  
+  The infrastructure could check for missing parameters and fetch them on demand.
+
+- [x] **Better Developer Onboarding:**  
+  Add interactive setup scripts or a CLI wizard for first-time setup.  
+  Provide more example contracts, API endpoints, and UI components.
+
+- [x] **Automated Environment Checks:**  
+  Add pre-build checks for required tools, environment variables, and folder structure.
+
+- [ ] **Improved Error Handling:**  
+  More descriptive error messages and troubleshooting guides for common issues.
+
+- [ ] **Template Customization Tools:**  
+  Scripts to easily rename the template, update package names, and clean up example files.
+
+- [ ] **CI/CD Integration:**  
+  Add GitHub Actions or other CI pipelines for automated testing, linting, and deployment.
+
+- [ ] **Documentation Enhancements:**  
+  More diagrams, architecture overviews, and real-world usage examples.
+
+- [x] **Community Feedback:**  
+  Encourage users to open issues or discussions for feature requests and pain points.
+
+- [ ] **Unified CLI/Library for Project Management:**  
+  Create a library or CLI tool to automate all setup, configuration, and project management from a single command (e.g., midnight-quick-starter init).
+
+- [x] **Basic Hello World Contract Validation:**  
+  Add a minimal contract and test that simply sets and reads a "Hello World" message to validate that the toolchain and build are working correctly.
+
+- [ ] **Lace Beta Wallet Integration:**  
+  Add support and documentation for integrating with Lace Beta Wallet for user authentication and transaction signing in the UI.
 
 > **Have an idea?** Open an issue or pull request to help make this template even better!
 
