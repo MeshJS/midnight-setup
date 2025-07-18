@@ -1,8 +1,8 @@
   import { MidnightProviders } from "@midnight-ntwrk/midnight-js-types";
   
-  export const QuickStarterPrivateStateId = "crowdFundingPrivateState";
+  export const QuickStarterPrivateStateId = "quickStarterPrivateState";
   export type QuickStarterPrivateStateId = typeof QuickStarterPrivateStateId;
-  export type CrowdFundingContractProviders = MidnightProviders<
+  export type QuickStarterContractProviders = MidnightProviders<
     QuickStarterPrivateStateId
   >;
   
