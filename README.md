@@ -1,26 +1,21 @@
-# Midnight Setup - MeshJS Toolkit
+# @meshsdk/midnight-setup
 
-<div align="center">
-  <h1>@meshsdk/midnight-setup</h1>
-  <p><strong>Complete development setup for building Midnight Network dApps</strong></p>
-  
-  [![npm version](https://img.shields.io/npm/v/@meshsdk/midnight-setup.svg)](https://www.npmjs.com/package/@meshsdk/midnight-setup)
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-  [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue)](https://www.typescriptlang.org/)
-</div>
+Complete development setup for building Midnight Network dApps
 
----
+[![npm version](https://img.shields.io/npm/v/@meshsdk/midnight-setup.svg)](https://www.npmjs.com/package/@meshsdk/midnight-setup)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue)](https://www.typescriptlang.org/)
 
-## 🚀 What is this?
+## What is this?
 
 This monorepo contains the complete Midnight Setup toolkit for building decentralized applications on the Midnight Network. It includes:
 
-- **📦 @meshsdk/midnight-setup** - Main npm package with smart contract, API, and types
-- **🖥️ UI Package** - Example React application demonstrating usage
-- **⚙️ CLI Package** - Command-line tools for development
-- **📜 Contract Package** - Compact smart contract source
+- **@meshsdk/midnight-setup** - Main npm package with smart contract, API, and types
+- **UI Package** - Example React application demonstrating usage
+- **CLI Package** - Command-line tools for development
+- **Contract Package** - Compact smart contract source
 
-## 🎯 Copy & Paste - Build Your First dApp in 2 Minutes
+## Copy & Paste - Build Your First dApp in 2 Minutes
 
 ### 1. Install Dependencies
 
@@ -204,7 +199,7 @@ function App() {
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent'
         }}>
-          🌙 My Midnight dApp
+          My Midnight dApp
         </h1>
         <p style={{ color: '#666', margin: '0 0 30px 0' }}>
           Built with @meshsdk/midnight-setup
@@ -235,7 +230,7 @@ function App() {
                 e.currentTarget.style.transform = 'scale(1)';
               }}
             >
-              {loading ? '⏳ Deploying...' : '🚀 Deploy New Contract'}
+              {loading ? 'Deploying...' : 'Deploy New Contract'}
             </button>
 
             <div style={{ 
@@ -295,7 +290,7 @@ function App() {
             marginBottom: '20px',
             fontSize: '14px'
           }}>
-            ❌ {error}
+            Error: {error}
           </div>
         )}
 
@@ -308,11 +303,11 @@ function App() {
             border: '2px solid #48bb78'
           }}>
             <h3 style={{ margin: '0 0 15px 0', color: '#2f855a' }}>
-              ✅ Contract Connected
+              Contract Connected
             </h3>
             <div style={{ fontSize: '14px', color: '#2d3748' }}>
               <p style={{ margin: '8px 0' }}>
-                <strong>📍 Address:</strong><br />
+                <strong>Address:</strong><br />
                 <code style={{ 
                   background: 'white', 
                   padding: '4px 8px', 
@@ -326,7 +321,7 @@ function App() {
                 </code>
               </p>
               <p style={{ margin: '12px 0' }}>
-                <strong>💬 Message:</strong><br />
+                <strong>Message:</strong><br />
                 <span style={{
                   background: 'white',
                   padding: '8px',
@@ -403,11 +398,11 @@ npm run dev
 # Click "Deploy New Contract"
 ```
 
-**That's it! You now have a fully working Midnight Network dApp.** 🎉
+**That's it! You now have a fully working Midnight Network dApp.**
 
 See the [complete documentation](./packages/api/README.md) for more examples.
 
-## 🏗️ Development
+## Development
 
 This is a Yarn workspace monorepo. To work on this project:
 
@@ -469,14 +464,14 @@ The main package that users install. Contains:
 - Wallet integration utilities
 
 **Location**: `packages/api`  
-**Status**: ✅ Publishable to npm
+**Status**: Publishable to npm
 
 ### Example UI
 
 React application demonstrating how to use the library.
 
 **Location**: `packages/ui`  
-**Status**: 🔒 Private (development only)
+**Status**: Private (development only)
 
 **Features**:
 - Wallet connection
@@ -496,25 +491,25 @@ yarn dev
 Command-line interface for contract operations.
 
 **Location**: `packages/cli`  
-**Status**: 🔒 Private (development only)
+**Status**: Private (development only)
 
 ### Contract
 
 Compact smart contract source and compilation.
 
 **Location**: `packages/contract`  
-**Status**: 🔒 Private (compilation only)
+**Status**: Private (compilation only)
 
-## 🎯 Features
+## Features
 
-- ✅ **Type-Safe**: Full TypeScript support with strict typing
-- ✅ **Easy to Use**: Simple API for deploying and joining contracts
-- ✅ **Well Documented**: Comprehensive README and examples
-- ✅ **Production Ready**: Built with best practices
-- ✅ **Extensible**: Easy to customize for your needs
-- ✅ **Modern Stack**: React 19, Vite, TypeScript 5.8
+- **Type-Safe**: Full TypeScript support with strict typing
+- **Easy to Use**: Simple API for deploying and joining contracts
+- **Well Documented**: Comprehensive README and examples
+- **Production Ready**: Built with best practices
+- **Extensible**: Easy to customize for your needs
+- **Modern Stack**: React 19, Vite, TypeScript 5.8
 
-## 🔧 Technologies
+## Technologies
 
 - **Midnight Network**: Blockchain platform
 - **Compact**: Smart contract language
@@ -525,13 +520,13 @@ Compact smart contract source and compilation.
 - **RxJS**: Reactive programming
 - **Pino**: Logging
 
-## 📖 Documentation
+## Documentation
 
 - [Library Documentation](./packages/api/README.md) - How to use @meshsdk/midnight-setup
 - [Publishing Guide](./PUBLISHING.md) - How to publish to npm
 - [Midnight Network Docs](https://docs.midnight.network) - Official Midnight documentation
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
@@ -541,24 +536,24 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
+## License
 
 MIT © [MeshJS Team](https://github.com/MeshJS)
 
 See [LICENSE](./LICENSE) for more information.
 
-## 🔗 Links
+## Links
 
 - [MeshJS Website](https://meshjs.dev)
 - [MeshJS GitHub](https://github.com/MeshJS)
 - [Midnight Network](https://midnight.network)
 - [npm Package](https://www.npmjs.com/package/@meshsdk/midnight-setup)
 
-## 💬 Support
+## Support
 
-- 🐛 [Report Issues](https://github.com/MeshJS/midnight-setup/issues)
-- 💬 [Discord Community](https://discord.gg/meshjs)
-- 🐦 [Twitter](https://twitter.com/meshsdk)
+- [Report Issues](https://github.com/MeshJS/midnight-setup/issues)
+- [Discord Community](https://discord.gg/meshjs)
+- [Twitter](https://twitter.com/meshsdk)
 
 ---
 
