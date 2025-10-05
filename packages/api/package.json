@@ -1,11 +1,33 @@
 {
-  "name": "@midnight-setup/midnight-setup-api",
+  "name": "@meshsdk/midnight-setup",
+  "version": "1.0.0",
+  "description": "Complete setup for building Midnight Network dApps - includes smart contract, API, and wallet integration",
+  "author": "MeshJS Team (https://github.com/MeshJS)",
+  "homepage": "https://github.com/MeshJS/midnight-setup",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MeshJS/midnight-setup.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MeshJS/midnight-setup/issues"
+  },
+  "keywords": [
+    "midnight",
+    "midnight-network",
+    "blockchain",
+    "smart-contracts",
+    "dapp",
+    "web3",
+    "compact",
+    "meshjs",
+    "midnight-dapp",
+    "wallet-integration"
+  ],
   "packageManager": "yarn@4.9.2",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "private": true,
   "license": "MIT",
   "exports": {
     ".": {
@@ -14,17 +36,38 @@
       "types": "./dist/index.d.ts"
     }
   },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "lint": "eslint src",
     "prepare-local-env": "RUN_STANDALONE='true' NODE_OPTIONS=--experimental-vm-modules jest -t 'prepare local env' --detectOpenHandles --forceExit",
     "test-api": "DEBUG='testcontainers' NODE_OPTIONS=--experimental-vm-modules jest  --detectOpenHandles --forceExit",
-    "build": "rm -rf dist && tsc --project tsconfig.build.json"
+    "build": "rm -rf dist && tsc --project tsconfig.build.json",
+    "prepublishOnly": "yarn build"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "dependencies": {
+    "@midnight-ntwrk/compact-runtime": "^0.8.1",
+    "@midnight-ntwrk/midnight-js-contracts": "2.0.2",
+    "@midnight-ntwrk/midnight-js-types": "2.0.2",
     "@midnight-setup/midnight-setup-contract": "workspace:*",
     "pino": "^8.16.1",
+    "rxjs": "^7.8.1",
     "uuid": "^11.1.0",
     "ws": "8.17.1"
+  },
+  "peerDependencies": {
+    "@midnight-ntwrk/dapp-connector-api": "^3.0.0",
+    "@midnight-ntwrk/midnight-js-fetch-zk-config-provider": "^2.0.2",
+    "@midnight-ntwrk/midnight-js-http-client-proof-provider": "^2.0.2",
+    "@midnight-ntwrk/midnight-js-indexer-public-data-provider": "^2.0.2",
+    "@midnight-ntwrk/midnight-js-level-private-state-provider": "^2.0.2",
+    "@midnight-ntwrk/midnight-js-network-id": "^2.0.2"
   },
   "devDependencies": {
     "@types/ws": "^8.5.9",
