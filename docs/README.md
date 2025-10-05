@@ -1,1 +1,0 @@
-TODO: Only for structure. Here should be information that refer to the documentation, it can be images, texts, files or folders, feel free to structure the folders as you like.

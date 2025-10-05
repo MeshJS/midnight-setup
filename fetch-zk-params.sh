@@ -14,7 +14,7 @@ mkdir -p "$ZK_PARAMS_DIR/zswap/4"
 echo "📥 Downloading BLS Filecoin params..."
 for i in $CIRCUIT_PARAM_RANGE; do
   echo "  ↳ bls_filecoin_2p$i"
-  curl --insecure -sSLo "$ZK_PARAMS_DIR/bls_filecoin_2p$i" \
+  curl -sSLo "$ZK_PARAMS_DIR/bls_filecoin_2p$i" \
     "https://midnight-s3-fileshare-dev-eu-west-1.s3.eu-west-1.amazonaws.com/bls_filecoin_2p$i"
 done
 

@@ -1596,6 +1596,66 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@midnight-setup/midnight-setup-api@workspace:*, @midnight-setup/midnight-setup-api@workspace:packages/api":
+  version: 0.0.0-use.local
+  resolution: "@midnight-setup/midnight-setup-api@workspace:packages/api"
+  dependencies:
+    "@midnight-setup/midnight-setup-contract": "workspace:*"
+    "@types/ws": "npm:^8.5.9"
+    allure-commandline: "npm:^2.28.0"
+    allure-jest: "npm:^2.15.1"
+    allure-js-commons: "npm:^2.15.1"
+    eslint: "npm:^8.52.0"
+    jest: "npm:^29.7.0"
+    pino: "npm:^8.16.1"
+    typescript: "npm:^5.8.3"
+    uuid: "npm:^11.1.0"
+    ws: "npm:8.17.1"
+  languageName: unknown
+  linkType: soft
+
+"@midnight-setup/midnight-setup-cli@workspace:packages/cli":
+  version: 0.0.0-use.local
+  resolution: "@midnight-setup/midnight-setup-cli@workspace:packages/cli"
+  dependencies:
+    "@midnight-setup/midnight-setup-api": "workspace:*"
+    "@midnight-setup/midnight-setup-contract": "workspace:*"
+    "@types/jest": "npm:^29.5.12"
+    "@types/ws": "npm:^8.5.9"
+    allure-commandline: "npm:^2.32.0"
+    allure-jest: "npm:^3.0.5"
+    allure-js-commons: "npm:^3.0.5"
+    eslint: "npm:^8.52.0"
+    jest: "npm:^29.7.0"
+    pino: "npm:^8.16.1"
+    ts-jest: "npm:^29.1.2"
+    typescript: "npm:^5.2.2"
+    ws: "npm:^8.14.2"
+  languageName: unknown
+  linkType: soft
+
+"@midnight-setup/midnight-setup-compact@workspace:compact":
+  version: 0.0.0-use.local
+  resolution: "@midnight-setup/midnight-setup-compact@workspace:compact"
+  dependencies:
+    eslint: "npm:^8.52.0"
+    ts-node: "npm:^10.9.2"
+    typescript: "npm:^5.2.2"
+  bin:
+    run-compact: src/run-compact.cjs
+  languageName: unknown
+  linkType: soft
+
+"@midnight-setup/midnight-setup-contract@workspace:*, @midnight-setup/midnight-setup-contract@workspace:packages/contract":
+  version: 0.0.0-use.local
+  resolution: "@midnight-setup/midnight-setup-contract@workspace:packages/contract"
+  dependencies:
+    eslint: "npm:^9.27.0"
+    jest: "npm:^29.7.0"
+    typescript: "npm:^5.8.2"
+  languageName: unknown
+  linkType: soft
+
 "@modelcontextprotocol/sdk@npm:^1.10.2":
   version: 1.15.1
   resolution: "@modelcontextprotocol/sdk@npm:1.15.1"
@@ -1809,67 +1869,6 @@ __metadata:
   checksum: 10c0/a3fe31fe3fa29aa3349e2e04ee13dc170cc6af7c23d92ad49e3eeaf79b9766264544d3da824dba93b7855bd6a2982fb40032ef40693da98a136d835752beb487
   languageName: node
   linkType: hard
-
-"@quick-starter/quick-starter-api@workspace:*, @quick-starter/quick-starter-api@workspace:packages/api":
-  version: 0.0.0-use.local
-  resolution: "@quick-starter/quick-starter-api@workspace:packages/api"
-  dependencies:
-    "@quick-starter/quick-starter-contract": "workspace:*"
-    "@types/ws": "npm:^8.5.9"
-    allure-commandline: "npm:^2.28.0"
-    allure-jest: "npm:^2.15.1"
-    allure-js-commons: "npm:^2.15.1"
-    eslint: "npm:^8.52.0"
-    jest: "npm:^29.7.0"
-    pino: "npm:^8.16.1"
-    typescript: "npm:^5.8.3"
-    uuid: "npm:^11.1.0"
-    ws: "npm:8.17.1"
-  languageName: unknown
-  linkType: soft
-
-"@quick-starter/quick-starter-cli@workspace:packages/cli":
-  version: 0.0.0-use.local
-  resolution: "@quick-starter/quick-starter-cli@workspace:packages/cli"
-  dependencies:
-    "@quick-starter/quick-starter-api": "workspace:*"
-    "@quick-starter/quick-starter-contract": "workspace:*"
-    "@types/jest": "npm:^29.5.12"
-    "@types/ws": "npm:^8.5.9"
-    allure-commandline: "npm:^2.32.0"
-    allure-jest: "npm:^3.0.5"
-    allure-js-commons: "npm:^3.0.5"
-    eslint: "npm:^8.52.0"
-    jest: "npm:^29.7.0"
-    pino: "npm:^8.16.1"
-    ts-jest: "npm:^29.1.2"
-    typescript: "npm:^5.2.2"
-    ws: "npm:^8.14.2"
-  languageName: unknown
-  linkType: soft
-
-"@quick-starter/quick-starter-compact@workspace:*, @quick-starter/quick-starter-compact@workspace:compact":
-  version: 0.0.0-use.local
-  resolution: "@quick-starter/quick-starter-compact@workspace:compact"
-  dependencies:
-    eslint: "npm:^8.52.0"
-    ts-node: "npm:^10.9.2"
-    typescript: "npm:^5.2.2"
-  bin:
-    run-compactc: src/run-compactc.cjs
-  languageName: unknown
-  linkType: soft
-
-"@quick-starter/quick-starter-contract@workspace:*, @quick-starter/quick-starter-contract@workspace:packages/contract":
-  version: 0.0.0-use.local
-  resolution: "@quick-starter/quick-starter-contract@workspace:packages/contract"
-  dependencies:
-    "@quick-starter/quick-starter-compact": "workspace:*"
-    eslint: "npm:^9.27.0"
-    jest: "npm:^29.7.0"
-    typescript: "npm:^5.8.2"
-  languageName: unknown
-  linkType: soft
 
 "@radix-ui/primitive@npm:1.1.2":
   version: 1.1.2
@@ -9646,6 +9645,68 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"midnight-setup-ui@workspace:packages/ui":
+  version: 0.0.0-use.local
+  resolution: "midnight-setup-ui@workspace:packages/ui"
+  dependencies:
+    "@eslint/js": "npm:^9.29.0"
+    "@midnight-setup/midnight-setup-api": "workspace:*"
+    "@midnight-setup/midnight-setup-contract": "workspace:*"
+    "@originjs/vite-plugin-commonjs": "npm:^1.0.3"
+    "@radix-ui/react-dialog": "npm:^1.1.14"
+    "@radix-ui/react-label": "npm:^2.1.7"
+    "@radix-ui/react-progress": "npm:^1.1.7"
+    "@radix-ui/react-slot": "npm:^1.2.3"
+    "@tailwindcss/vite": "npm:^4.1.11"
+    "@types/node": "npm:^24.0.4"
+    "@types/progress": "npm:^2"
+    "@types/react": "npm:^19.1.8"
+    "@types/react-dom": "npm:^19.1.6"
+    "@vitejs/plugin-react": "npm:^4.5.2"
+    assert: "npm:^2.0.0"
+    badge: "npm:^1.0.3"
+    browserify-fs: "npm:^1.0.0"
+    buffer: "npm:^6.0.3"
+    button: "npm:^1.1.1"
+    card: "npm:^2.5.4"
+    class-variance-authority: "npm:^0.7.1"
+    clsx: "npm:^2.1.1"
+    crypto-browserify: "npm:^3.12.0"
+    dialog: "npm:^0.3.1"
+    eslint: "npm:^9.29.0"
+    eslint-plugin-react-hooks: "npm:^5.2.0"
+    eslint-plugin-react-refresh: "npm:^0.4.20"
+    globals: "npm:^16.2.0"
+    http-server: "npm:^14.1.1"
+    https-browserify: "npm:^1.0.0"
+    init: "npm:^0.1.2"
+    input: "npm:^1.0.1"
+    label: "npm:^0.2.2"
+    lucide-react: "npm:^0.523.0"
+    os-browserify: "npm:^0.3.0"
+    process: "npm:^0.11.10"
+    progress: "npm:^2.0.3"
+    react: "npm:^19.1.0"
+    react-dom: "npm:^19.1.0"
+    react-hot-toast: "npm:^2.5.2"
+    shadcn: "npm:^2.7.0"
+    stream-browserify: "npm:^3.0.0"
+    stream-http: "npm:^3.2.0"
+    tailwind-merge: "npm:^3.3.1"
+    tailwindcss: "npm:^4.1.11"
+    textarea: "npm:^0.3.0"
+    tw-animate-css: "npm:^1.3.4"
+    typescript: "npm:~5.8.3"
+    typescript-eslint: "npm:^8.34.1"
+    url: "npm:^0.11.0"
+    util: "npm:^0.12.5"
+    uuid: "npm:^11.1.0"
+    vite: "npm:^7.0.0"
+    vite-plugin-top-level-await: "npm:^1.5.0"
+    vite-plugin-wasm: "npm:^3.4.1"
+  languageName: unknown
+  linkType: soft
+
 "miller-rabin@npm:^4.0.0":
   version: 4.0.1
   resolution: "miller-rabin@npm:4.0.1"
@@ -11096,68 +11157,6 @@ __metadata:
   checksum: 10c0/fe5acc6f775b172ca5b4373df26f7e4fd347975578199e7d74b2ae4077f0af05baa27d231de1e80e8f72d88275ccc6028568a7a8c9ee5e7368ace0e18eff93a4
   languageName: node
   linkType: hard
-
-"quick-starter-ui@workspace:packages/ui":
-  version: 0.0.0-use.local
-  resolution: "quick-starter-ui@workspace:packages/ui"
-  dependencies:
-    "@eslint/js": "npm:^9.29.0"
-    "@originjs/vite-plugin-commonjs": "npm:^1.0.3"
-    "@quick-starter/quick-starter-api": "workspace:*"
-    "@quick-starter/quick-starter-contract": "workspace:*"
-    "@radix-ui/react-dialog": "npm:^1.1.14"
-    "@radix-ui/react-label": "npm:^2.1.7"
-    "@radix-ui/react-progress": "npm:^1.1.7"
-    "@radix-ui/react-slot": "npm:^1.2.3"
-    "@tailwindcss/vite": "npm:^4.1.11"
-    "@types/node": "npm:^24.0.4"
-    "@types/progress": "npm:^2"
-    "@types/react": "npm:^19.1.8"
-    "@types/react-dom": "npm:^19.1.6"
-    "@vitejs/plugin-react": "npm:^4.5.2"
-    assert: "npm:^2.0.0"
-    badge: "npm:^1.0.3"
-    browserify-fs: "npm:^1.0.0"
-    buffer: "npm:^6.0.3"
-    button: "npm:^1.1.1"
-    card: "npm:^2.5.4"
-    class-variance-authority: "npm:^0.7.1"
-    clsx: "npm:^2.1.1"
-    crypto-browserify: "npm:^3.12.0"
-    dialog: "npm:^0.3.1"
-    eslint: "npm:^9.29.0"
-    eslint-plugin-react-hooks: "npm:^5.2.0"
-    eslint-plugin-react-refresh: "npm:^0.4.20"
-    globals: "npm:^16.2.0"
-    http-server: "npm:^14.1.1"
-    https-browserify: "npm:^1.0.0"
-    init: "npm:^0.1.2"
-    input: "npm:^1.0.1"
-    label: "npm:^0.2.2"
-    lucide-react: "npm:^0.523.0"
-    os-browserify: "npm:^0.3.0"
-    process: "npm:^0.11.10"
-    progress: "npm:^2.0.3"
-    react: "npm:^19.1.0"
-    react-dom: "npm:^19.1.0"
-    react-hot-toast: "npm:^2.5.2"
-    shadcn: "npm:^2.7.0"
-    stream-browserify: "npm:^3.0.0"
-    stream-http: "npm:^3.2.0"
-    tailwind-merge: "npm:^3.3.1"
-    tailwindcss: "npm:^4.1.11"
-    textarea: "npm:^0.3.0"
-    tw-animate-css: "npm:^1.3.4"
-    typescript: "npm:~5.8.3"
-    typescript-eslint: "npm:^8.34.1"
-    url: "npm:^0.11.0"
-    util: "npm:^0.12.5"
-    uuid: "npm:^11.1.0"
-    vite: "npm:^7.0.0"
-    vite-plugin-top-level-await: "npm:^1.5.0"
-    vite-plugin-wasm: "npm:^3.4.1"
-  languageName: unknown
-  linkType: soft
 
 "randombytes@npm:^2.0.0, randombytes@npm:^2.0.1, randombytes@npm:^2.0.5, randombytes@npm:^2.1.0":
   version: 2.1.0
