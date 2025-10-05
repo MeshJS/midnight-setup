@@ -43,7 +43,7 @@ import {
   type MidnightSetupContractProviders,
   type DeployedMidnightSetupAPI,
   type TokenCircuitKeys,
-} from "@midnight-setup/midnight-setup-api";
+} from "@meshsdk/midnight-setup";
 import type { WalletAndProvider } from "./common-types";
 import type { Logger } from "pino";
 

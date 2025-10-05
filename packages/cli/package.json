@@ -14,7 +14,7 @@
     "lint": "eslint src"
   },
   "dependencies": {
-    "@midnight-setup/midnight-setup-api": "workspace:*",
+    "@meshsdk/midnight-setup": "workspace:*",
     "@midnight-setup/midnight-setup-contract": "workspace:*",
     "pino": "^8.16.1",
     "ws": "^8.14.2"

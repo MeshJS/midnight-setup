@@ -7,7 +7,7 @@ import { Label } from "./components/ui/label";
 import { Badge } from "./components/ui/badge";
 import { Wallet, Loader2, CheckCircle, AlertCircle, Database, RefreshCw } from "lucide-react";
 import { useState } from "react";
-import type { ContractStateData, LedgerStateData } from "@midnight-setup/midnight-setup-api";
+import type { ContractStateData, LedgerStateData } from "@meshsdk/midnight-setup";
 
 // Helper to safely stringify unknown data
 const safeStringify = (data: unknown): string => {

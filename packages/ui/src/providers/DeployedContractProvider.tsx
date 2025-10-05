@@ -1,5 +1,5 @@
 import useMidnightWallet from "@/hookes/useMidnightWallet";
-import { MidnightSetupAPI, type DeployedMidnightSetupAPI } from "@midnight-setup/midnight-setup-api";
+import { MidnightSetupAPI, type DeployedMidnightSetupAPI } from "@meshsdk/midnight-setup";
 import type { Logger } from "pino";
 import {
   createContext,

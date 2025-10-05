@@ -1403,6 +1403,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@meshsdk/midnight-setup@workspace:*, @meshsdk/midnight-setup@workspace:packages/api":
+  version: 0.0.0-use.local
+  resolution: "@meshsdk/midnight-setup@workspace:packages/api"
+  dependencies:
+    "@midnight-ntwrk/compact-runtime": "npm:^0.8.1"
+    "@midnight-ntwrk/midnight-js-contracts": "npm:2.0.2"
+    "@midnight-ntwrk/midnight-js-types": "npm:2.0.2"
+    "@midnight-setup/midnight-setup-contract": "workspace:*"
+    "@types/ws": "npm:^8.5.9"
+    allure-commandline: "npm:^2.28.0"
+    allure-jest: "npm:^2.15.1"
+    allure-js-commons: "npm:^2.15.1"
+    eslint: "npm:^8.52.0"
+    jest: "npm:^29.7.0"
+    pino: "npm:^8.16.1"
+    rxjs: "npm:^7.8.1"
+    typescript: "npm:^5.8.3"
+    uuid: "npm:^11.1.0"
+    ws: "npm:8.17.1"
+  peerDependencies:
+    "@midnight-ntwrk/dapp-connector-api": ^3.0.0
+    "@midnight-ntwrk/midnight-js-fetch-zk-config-provider": ^2.0.2
+    "@midnight-ntwrk/midnight-js-http-client-proof-provider": ^2.0.2
+    "@midnight-ntwrk/midnight-js-indexer-public-data-provider": ^2.0.2
+    "@midnight-ntwrk/midnight-js-level-private-state-provider": ^2.0.2
+    "@midnight-ntwrk/midnight-js-network-id": ^2.0.2
+  languageName: unknown
+  linkType: soft
+
 "@midnight-ntwrk/compact-runtime@npm:^0.8.1":
   version: 0.8.1
   resolution: "@midnight-ntwrk/compact-runtime@npm:0.8.1"
@@ -1596,29 +1625,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@midnight-setup/midnight-setup-api@workspace:*, @midnight-setup/midnight-setup-api@workspace:packages/api":
-  version: 0.0.0-use.local
-  resolution: "@midnight-setup/midnight-setup-api@workspace:packages/api"
-  dependencies:
-    "@midnight-setup/midnight-setup-contract": "workspace:*"
-    "@types/ws": "npm:^8.5.9"
-    allure-commandline: "npm:^2.28.0"
-    allure-jest: "npm:^2.15.1"
-    allure-js-commons: "npm:^2.15.1"
-    eslint: "npm:^8.52.0"
-    jest: "npm:^29.7.0"
-    pino: "npm:^8.16.1"
-    typescript: "npm:^5.8.3"
-    uuid: "npm:^11.1.0"
-    ws: "npm:8.17.1"
-  languageName: unknown
-  linkType: soft
-
 "@midnight-setup/midnight-setup-cli@workspace:packages/cli":
   version: 0.0.0-use.local
   resolution: "@midnight-setup/midnight-setup-cli@workspace:packages/cli"
   dependencies:
-    "@midnight-setup/midnight-setup-api": "workspace:*"
+    "@meshsdk/midnight-setup": "workspace:*"
     "@midnight-setup/midnight-setup-contract": "workspace:*"
     "@types/jest": "npm:^29.5.12"
     "@types/ws": "npm:^8.5.9"
@@ -1634,7 +1645,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@midnight-setup/midnight-setup-compact@workspace:compact":
+"@midnight-setup/midnight-setup-compact@workspace:*, @midnight-setup/midnight-setup-compact@workspace:compact":
   version: 0.0.0-use.local
   resolution: "@midnight-setup/midnight-setup-compact@workspace:compact"
   dependencies:
@@ -1650,6 +1661,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@midnight-setup/midnight-setup-contract@workspace:packages/contract"
   dependencies:
+    "@midnight-setup/midnight-setup-compact": "workspace:*"
     eslint: "npm:^9.27.0"
     jest: "npm:^29.7.0"
     typescript: "npm:^5.8.2"
@@ -9650,7 +9662,7 @@ __metadata:
   resolution: "midnight-setup-ui@workspace:packages/ui"
   dependencies:
     "@eslint/js": "npm:^9.29.0"
-    "@midnight-setup/midnight-setup-api": "workspace:*"
+    "@meshsdk/midnight-setup": "workspace:*"
     "@midnight-setup/midnight-setup-contract": "workspace:*"
     "@originjs/vite-plugin-commonjs": "npm:^1.0.3"
     "@radix-ui/react-dialog": "npm:^1.1.14"

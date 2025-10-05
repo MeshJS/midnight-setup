@@ -11,7 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@midnight-setup/midnight-setup-api": "workspace:*",
+    "@meshsdk/midnight-setup": "workspace:*",
     "@midnight-setup/midnight-setup-contract": "workspace:*",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-label": "^2.1.7",

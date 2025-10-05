@@ -1,6 +1,6 @@
 import path from 'node:path';
 import { NetworkId, setNetworkId } from '@midnight-ntwrk/midnight-js-network-id';
-import { MidnightSetupPrivateStateId } from '@midnight-setup/midnight-setup-api';
+import { MidnightSetupPrivateStateId } from '@meshsdk/midnight-setup';
 
 export interface Config {
   readonly privateStateStoreName: string;

@@ -1,6 +1,6 @@
 import { initialWalletAndProviders } from "@/lib/actions";
 import type { WalletAPI } from "@/lib/common-types";
-import type { MidnightSetupContractProviders } from "@midnight-setup/midnight-setup-api";
+import type { MidnightSetupContractProviders } from "@meshsdk/midnight-setup";
 import type { Logger } from "pino";
 import {
   createContext,

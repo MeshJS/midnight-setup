@@ -10,7 +10,7 @@ import {
   type Ledger,
   ledger,
 } from "@midnight-setup/midnight-setup-contract";
-import { MidnightSetupAPI } from "@midnight-setup/midnight-setup-api";
+import { MidnightSetupAPI } from "@meshsdk/midnight-setup";
 import { toHex } from "@midnight-ntwrk/midnight-js-utils";
 import { type Config, StandaloneConfig } from "./config.js";
 import {
@@ -50,7 +50,7 @@ import type {
   MidnightSetupContractProviders, 
   DerivedMidnightSetupContractState,
   MidnightSetupPrivateStateId as MidnightSetupPrivateStateIdType
-} from "@midnight-setup/midnight-setup-api";
+} from "@meshsdk/midnight-setup";
 
 const MidnightSetupPrivateStateId: MidnightSetupPrivateStateIdType = "midnight-setup-private-state";
 

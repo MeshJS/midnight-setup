@@ -1,4 +1,4 @@
-import type { MidnightSetupContractProviders, DeployedMidnightSetupAPI } from "@midnight-setup/midnight-setup-api";
+import type { MidnightSetupContractProviders, DeployedMidnightSetupAPI } from "@meshsdk/midnight-setup";
 import type { DAppConnectorWalletAPI, ServiceUriConfig } from "@midnight-ntwrk/dapp-connector-api";
 
 
