@@ -40,9 +40,12 @@
   "files": [
     "dist",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "fetch-zk-params.sh",
+    "postinstall.js"
   ],
   "scripts": {
+    "postinstall": "node postinstall.js",
     "lint": "eslint src",
     "prepare-local-env": "RUN_STANDALONE='true' NODE_OPTIONS=--experimental-vm-modules jest -t 'prepare local env' --detectOpenHandles --forceExit",
     "test-api": "DEBUG='testcontainers' NODE_OPTIONS=--experimental-vm-modules jest  --detectOpenHandles --forceExit",

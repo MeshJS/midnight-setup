@@ -13,7 +13,7 @@
 
 ## ⚡ Quick Start (2 minutes)
 
-### Install
+### Step 1: Install
 
 ```bash
 npm install @meshsdk/midnight-setup \
@@ -25,7 +25,41 @@ npm install @meshsdk/midnight-setup \
   @midnight-ntwrk/midnight-js-network-id@2.0.2
 ```
 
-### Copy This Code - Deploy Your First Contract
+**What happens automatically:**
+- ✅ ZK parameters are downloaded to `.cache/midnight/zk-params/`
+- ✅ All dependencies are installed
+- ✅ Your project is ready to use Midnight Network
+
+> **Note:** The ZK params download (~50MB) runs automatically after installation. If it fails, you can run it manually:
+> ```bash
+> sh node_modules/@meshsdk/midnight-setup/fetch-zk-params.sh
+> ```
+
+### Step 2: Install Lace Beta Wallet
+
+Download and install: [Lace Beta Wallet for Midnight](https://chromewebstore.google.com/detail/lace-beta/djcdfchkaijggdjokfomholkalbffgil)
+
+1. Create a new wallet
+2. Switch to **Midnight Testnet** in settings
+3. Make sure you have at least one account
+
+### Step 3: Setup Your Project (Copy Required Files)
+
+See the **"🎯 Complete Hello World"** section below for all the files you need to copy.
+
+### Step 4: Run Your dApp
+
+```bash
+npm run dev
+```
+
+Open http://localhost:5173 and click "Deploy New Contract"
+
+**That's it! You have a working Midnight dApp!** 🎉
+
+---
+
+## 🚀 Quick Deploy - One Code Block
 
 ```typescript
 import { MidnightSetupAPI } from '@meshsdk/midnight-setup';
