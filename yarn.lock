@@ -1403,7 +1403,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@meshsdk/midnight-setup@workspace:*, @meshsdk/midnight-setup@workspace:packages/api":
+"@meshsdk/midnight-setup@npm:1.9.0-beta.81":
+  version: 1.9.0-beta.81
+  resolution: "@meshsdk/midnight-setup@npm:1.9.0-beta.81"
+  dependencies:
+    "@midnight-ntwrk/compact-runtime": "npm:^0.8.1"
+    "@midnight-ntwrk/midnight-js-contracts": "npm:2.0.2"
+    "@midnight-ntwrk/midnight-js-types": "npm:2.0.2"
+    pino: "npm:^8.16.1"
+    rxjs: "npm:^7.8.1"
+  peerDependencies:
+    "@midnight-ntwrk/dapp-connector-api": ^3.0.0
+    "@midnight-ntwrk/midnight-js-fetch-zk-config-provider": ^2.0.2
+    "@midnight-ntwrk/midnight-js-http-client-proof-provider": ^2.0.2
+    "@midnight-ntwrk/midnight-js-indexer-public-data-provider": ^2.0.2
+    "@midnight-ntwrk/midnight-js-level-private-state-provider": ^2.0.2
+    "@midnight-ntwrk/midnight-js-network-id": ^2.0.2
+  checksum: 10c0/12795fc81179b85b6a818390f032dc22f54d372c424ff8be0071e4e4ba5fc9f00d03723fae4b80b833e52b6546eefae3a9ff54d3df6a39661da14446e82223e6
+  languageName: node
+  linkType: hard
+
+"@meshsdk/midnight-setup@workspace:packages/api":
   version: 0.0.0-use.local
   resolution: "@meshsdk/midnight-setup@workspace:packages/api"
   dependencies:
@@ -1629,7 +1649,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@midnight-setup/midnight-setup-cli@workspace:packages/cli"
   dependencies:
-    "@meshsdk/midnight-setup": "workspace:*"
+    "@meshsdk/midnight-setup": "npm:1.9.0-beta.81"
     "@midnight-ntwrk/dapp-connector-api": "npm:3.0.0"
     "@midnight-ntwrk/midnight-js-fetch-zk-config-provider": "npm:2.0.2"
     "@midnight-ntwrk/midnight-js-http-client-proof-provider": "npm:2.0.2"
@@ -9668,7 +9688,7 @@ __metadata:
   resolution: "midnight-setup-ui@workspace:packages/ui"
   dependencies:
     "@eslint/js": "npm:^9.29.0"
-    "@meshsdk/midnight-setup": "workspace:*"
+    "@meshsdk/midnight-setup": "npm:1.9.0-beta.81"
     "@midnight-ntwrk/dapp-connector-api": "npm:3.0.0"
     "@midnight-ntwrk/midnight-js-fetch-zk-config-provider": "npm:2.0.2"
     "@midnight-ntwrk/midnight-js-http-client-proof-provider": "npm:2.0.2"

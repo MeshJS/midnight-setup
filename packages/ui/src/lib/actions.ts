@@ -57,8 +57,8 @@ const connectWallet = async (): Promise<{
     fnPipe(
       interval(100),
       map(() => window.midnight?.mnLace),
-      tap((connectorAPI) => {
-        console.info(connectorAPI, "Check for wallet connector API");
+      tap(() => {
+        // Check for wallet connector API
       }),
       filter(
         (connectorAPI): connectorAPI is DAppConnectorAPI => !!connectorAPI
@@ -70,31 +70,22 @@ const connectWallet = async (): Promise<{
         )
           ? of(connectorAPI)
           : throwError(() => {
-              console.error(
-                {
-                  expected: COMPATIBLE_CONNECTOR_API_VERSION,
-                  actual: connectorAPI.apiVersion,
-                },
-                "Incompatible version of wallet connector API"
-              );
+              // Incompatible version of wallet connector API
 
               return new Error(
                 `Incompatible version of Midnight Lace wallet found. Require '${COMPATIBLE_CONNECTOR_API_VERSION}', got '${connectorAPI.apiVersion}'.`
               );
             })
       ),
-      tap((connectorAPI) => {
-        console.info(
-          connectorAPI,
-          "Compatible wallet connector API found. Connecting."
-        );
+      tap(() => {
+        // Compatible wallet connector API found. Connecting.
       }),
       take(1),
       timeout({
         first: 1_000,
         with: () =>
           throwError(() => {
-            console.error("Could not find wallet connector API");
+            // Could not find wallet connector API
 
             return new Error(
               "Could not find Midnight Lace wallet. Extension installed?"
@@ -102,9 +93,8 @@ const connectWallet = async (): Promise<{
           }),
       }),
       concatMap(async (connectorAPI) => {
-        const isEnabled = await connectorAPI.isEnabled();
 
-        console.info(isEnabled, "Wallet connector API enabled status");
+        // Wallet connector API enabled status
 
         return connectorAPI;
       }),
@@ -112,7 +102,7 @@ const connectWallet = async (): Promise<{
         first: 5_000,
         with: () =>
           throwError(() => {
-            console.error("Wallet connector API has failed to respond");
+            // Wallet connector API has failed to respond
 
             return new Error(
               "Midnight Lace wallet has failed to respond. Extension enabled?"
@@ -126,7 +116,7 @@ const connectWallet = async (): Promise<{
       catchError((error, apis) =>
         error
           ? throwError(() => {
-              console.error("Unable to enable connector API");
+              // Unable to enable connector API
               return new Error("Application is not authorized");
             })
           : apis
@@ -134,9 +124,7 @@ const connectWallet = async (): Promise<{
       concatMap(async ({ walletConnectorAPI, connectorAPI }) => {
         const uris = await connectorAPI.serviceUriConfig();
 
-        console.info(
-          "Connected to wallet connector API and retrieved service configuration"
-        );
+        // Connected to wallet connector API and retrieved service configuration
 
         return { wallet: walletConnectorAPI, uris };
       })
@@ -185,7 +173,7 @@ export const initialWalletAndProviders =
             )
             .then(createBalancedTx)
             .finally(() => {
-              console.log("balanceTxDone");
+              // balanceTxDone
             });
         },
       },

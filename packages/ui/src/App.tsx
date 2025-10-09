@@ -65,13 +65,13 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
-      <div className="max-w-4xl mx-auto space-y-8">
+    <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
+      <div className="max-w-4xl mx-auto space-y-6 lg:space-y-8">
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
             Midnight Setup
           </h1>
-          <p className="text-gray-600">
+          <p className="text-sm sm:text-base text-gray-600 px-4">
             Connect your wallet, deploy or join contracts, view contract and ledger states, check your API, access your contract address and functions — all in one place. Modify as you like and just build!
           </p>
         </div>
@@ -89,42 +89,49 @@ function App() {
           </CardHeader>
           <CardContent>
             {walletContext?.walletState.hasConnected ? (
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <Badge className="gap-2 bg-emerald-500/10 text-emerald-400 border-emerald-500/20 px-3 py-1">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+                  <Badge className="gap-2 bg-emerald-500/10 text-emerald-400 border-emerald-500/20 px-3 py-1 w-fit">
                     <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                    Connected: {walletContext.walletState.address?.slice(0, 6)}...
-                    {walletContext.walletState.address?.slice(-4)}
+                    <span className="text-xs sm:text-sm">
+                      Connected: {walletContext.walletState.address?.slice(0, 6)}...
+                      {walletContext.walletState.address?.slice(-4)}
+                    </span>
                   </Badge>
-                  <CheckCircle className="w-5 h-5 text-emerald-500" />
+                  <CheckCircle className="w-5 h-5 text-emerald-500 hidden sm:block" />
                 </div>
                 <Button
                   variant="outline"
                   onClick={walletContext.disconnect}
                   disabled={walletContext.walletState.isConnecting}
+                  className="w-full sm:w-auto"
                 >
                   Disconnect
                 </Button>
               </div>
             ) : (
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div className="flex items-center gap-2 text-gray-600">
                   <AlertCircle className="w-5 h-5" />
-                  Wallet not connected
+                  <span className="text-sm sm:text-base">Wallet not connected</span>
                 </div>
                 <Button
                   onClick={walletContext?.connectToWalletAndInitializeProviders}
                   disabled={walletContext?.walletState.isConnecting}
-                  className="gap-2"
+                  className="gap-2 w-full sm:w-auto"
                 >
                   <Wallet className="w-4 h-4" />
                   {walletContext?.walletState.isConnecting ? (
                     <>
                       <Loader2 className="w-4 h-4 animate-spin" />
-                      Connecting...
+                      <span className="hidden sm:inline">Connecting...</span>
+                      <span className="sm:hidden">Connecting</span>
                     </>
                   ) : (
-                    "Connect Wallet"
+                    <>
+                      <span className="hidden sm:inline">Connect Wallet</span>
+                      <span className="sm:hidden">Connect</span>
+                    </>
                   )}
                 </Button>
               </div>
@@ -159,25 +166,34 @@ function App() {
               {/* Deploy Contract */}
               <div className="space-y-4">
                 <h3 className="text-lg font-semibold">Deploy New Contract</h3>
-                <div className="flex items-center gap-4">
+                <div className="space-y-4">
                   <Button
                     onClick={handleDeployContract}
                     disabled={contractContext.isDeploying || contractContext.hasDeployed}
-                    className="gap-2"
+                    className="gap-2 w-full sm:w-auto"
                   >
                     {contractContext.isDeploying ? (
                       <>
                         <Loader2 className="w-4 h-4 animate-spin" />
-                        Deploying...
+                        <span className="hidden sm:inline">Deploying...</span>
+                        <span className="sm:hidden">Deploying</span>
                       </>
                     ) : (
-                      "Deploy Contract"
+                      <>
+                        <span className="hidden sm:inline">Deploy Contract</span>
+                        <span className="sm:hidden">Deploy</span>
+                      </>
                     )}
                   </Button>
                   {contractContext.hasDeployed && (
                     <div className="flex items-center gap-2 text-emerald-600">
-                      <CheckCircle className="w-5 h-5" />
-                      <span>Contract deployed at: {contractContext.deployedContractAddress}</span>
+                      <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                      <div className="text-sm">
+                        <span className="block sm:inline">Contract deployed at:</span>
+                        <span className="block sm:inline break-all sm:break-normal sm:ml-1">
+                          {contractContext.deployedContractAddress}
+                        </span>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -186,36 +202,46 @@ function App() {
               {/* Join Contract */}
               <div className="space-y-4">
                 <h3 className="text-lg font-semibold">Join Existing Contract</h3>
-                <div className="flex items-center gap-4">
-                  <div className="flex-1">
-                    <Label htmlFor="contract-address">Contract Address</Label>
+                <div className="flex-1">
+                  <Label htmlFor="contract-address" className="mb-2 block">Contract Address</Label>
+                  <div className="flex flex-col sm:flex-row gap-4">
                     <Input
                       id="contract-address"
                       placeholder="Enter contract address..."
                       value={contractAddress}
                       onChange={(e) => setContractAddress(e.target.value)}
                       disabled={contractContext.isJoining}
+                      className="flex-1 text-sm"
                     />
-                  </div>
-                  <Button
-                    onClick={handleJoinContract}
-                    disabled={contractContext.isJoining || contractContext.hasJoined || !contractAddress.trim()}
-                    className="gap-2"
-                  >
+                    <Button
+                      onClick={handleJoinContract}
+                      disabled={contractContext.isJoining || contractContext.hasJoined || !contractAddress.trim()}
+                      className="gap-2 w-full sm:w-auto"
+                    >
                     {contractContext.isJoining ? (
                       <>
                         <Loader2 className="w-4 h-4 animate-spin" />
-                        Joining...
+                        <span className="hidden sm:inline">Joining...</span>
+                        <span className="sm:hidden">Joining</span>
                       </>
                     ) : (
-                      "Join Contract"
+                      <>
+                        <span className="hidden sm:inline">Join Contract</span>
+                        <span className="sm:hidden">Join</span>
+                      </>
                     )}
                   </Button>
+                  </div>
                 </div>
                 {contractContext.hasJoined && (
-                  <div className="flex items-center gap-2 text-emerald-600">
-                    <CheckCircle className="w-5 h-5" />
-                    <span>Successfully joined contract at: {contractContext.deployedContractAddress}</span>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-emerald-600">
+                    <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                    <div className="text-sm">
+                      <span className="block sm:inline">Successfully joined contract at:</span>
+                      <span className="block sm:inline break-all sm:break-normal sm:ml-1">
+                        {contractContext.deployedContractAddress}
+                      </span>
+                    </div>
                   </div>
                 )}
               </div>
@@ -241,7 +267,9 @@ function App() {
                   <h4 className="font-semibold text-emerald-800 mb-2">Contract Status</h4>
                   <div className="space-y-2 text-sm text-emerald-700">
                     <p><strong>Status:</strong> {contractContext.hasDeployed ? "Deployed" : "Joined"}</p>
-                    <p><strong>Address:</strong> {contractContext.deployedContractAddress}</p>
+                    <p className="break-all sm:break-normal">
+                      <strong>Address:</strong> {contractContext.deployedContractAddress}
+                    </p>
                     <p><strong>API Available:</strong> {contractContext.midnightSetupApi ? "Yes" : "No"}</p>
                   </div>
                 </div>
@@ -263,21 +291,23 @@ function App() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   onClick={handleGetContractState}
                    disabled={isLoadingState || !contractContext.midnightSetupApi}
-                  className="gap-2"
+                  className="gap-2 w-full sm:w-auto"
                 >
                   {isLoadingState ? (
                     <>
                       <Loader2 className="w-4 h-4 animate-spin" />
-                      Loading...
+                      <span className="hidden sm:inline">Loading...</span>
+                      <span className="sm:hidden">Loading</span>
                     </>
                   ) : (
                     <>
                       <RefreshCw className="w-4 h-4" />
-                      Get Contract State
+                      <span className="hidden sm:inline">Get Contract State</span>
+                      <span className="sm:hidden">Contract State</span>
                     </>
                   )}
                 </Button>
@@ -285,17 +315,19 @@ function App() {
                   onClick={handleGetLedgerState}
                    disabled={isLoadingState || !contractContext.midnightSetupApi}
                   variant="outline"
-                  className="gap-2"
+                  className="gap-2 w-full sm:w-auto"
                 >
                   {isLoadingState ? (
                     <>
                       <Loader2 className="w-4 h-4 animate-spin" />
-                      Loading...
+                      <span className="hidden sm:inline">Loading...</span>
+                      <span className="sm:hidden">Loading</span>
                     </>
                   ) : (
                     <>
                       <Database className="w-4 h-4" />
-                      Get Ledger State
+                      <span className="hidden sm:inline">Get Ledger State</span>
+                      <span className="sm:hidden">Ledger State</span>
                     </>
                   )}
                 </Button>
@@ -306,12 +338,12 @@ function App() {
                 <div className="p-4 bg-blue-50 border border-blue-200 rounded-md">
                   <h4 className="font-semibold text-blue-800 mb-2">Contract State</h4>
                   <div className="space-y-2 text-sm">
-                    <p><strong>Address:</strong> {contractState.address}</p>
+                    <p className="break-all sm:break-normal"><strong>Address:</strong> {contractState.address}</p>
                     {contractState.blockHeight && (
                       <p><strong>Block Height:</strong> {contractState.blockHeight}</p>
                     )}
                     {contractState.blockHash && (
-                      <p><strong>Block Hash:</strong> {contractState.blockHash}</p>
+                      <p className="break-all sm:break-normal"><strong>Block Hash:</strong> {contractState.blockHash}</p>
                     )}
                     {contractState.error && (
                       <p className="text-red-600"><strong>Error:</strong> {contractState.error}</p>
@@ -322,7 +354,7 @@ function App() {
                     {contractState.data !== null && contractState.data !== undefined ? (
                       <div>
                         <p><strong>Raw Data:</strong></p>
-                        <pre className="bg-gray-100 p-2 rounded text-xs overflow-auto max-h-40">
+                        <pre className="bg-gray-100 p-2 rounded text-xs overflow-auto max-h-40 whitespace-pre-wrap break-words">
                           {safeStringify(contractState.data)}
                         </pre>
                       </div>
@@ -336,12 +368,12 @@ function App() {
                 <div className="p-4 bg-green-50 border border-green-200 rounded-md">
                   <h4 className="font-semibold text-green-800 mb-2">Ledger State</h4>
                   <div className="space-y-2 text-sm">
-                    <p><strong>Address:</strong> {ledgerState.address}</p>
+                    <p className="break-all sm:break-normal"><strong>Address:</strong> {ledgerState.address}</p>
                     {ledgerState.blockHeight && (
                       <p><strong>Block Height:</strong> {ledgerState.blockHeight}</p>
                     )}
                     {ledgerState.blockHash && (
-                      <p><strong>Block Hash:</strong> {ledgerState.blockHash}</p>
+                      <p className="break-all sm:break-normal"><strong>Block Hash:</strong> {ledgerState.blockHash}</p>
                     )}
                     {ledgerState.error && (
                       <p className="text-red-600"><strong>Error:</strong> {ledgerState.error}</p>
@@ -356,7 +388,7 @@ function App() {
                         )}
                         <div className="mt-2">
                           <p><strong>Parsed Data:</strong></p>
-                          <pre className="bg-gray-100 p-2 rounded text-xs overflow-auto max-h-40">
+                          <pre className="bg-gray-100 p-2 rounded text-xs overflow-auto max-h-40 whitespace-pre-wrap break-words">
                             {JSON.stringify(ledgerState.ledgerState, null, 2)}
                           </pre>
                         </div>
@@ -365,7 +397,7 @@ function App() {
                     {ledgerState.rawData !== null && ledgerState.rawData !== undefined ? (
                       <div>
                         <p><strong>Raw Data (could not parse):</strong></p>
-                        <pre className="bg-gray-100 p-2 rounded text-xs overflow-auto max-h-40">
+                        <pre className="bg-gray-100 p-2 rounded text-xs overflow-auto max-h-40 whitespace-pre-wrap break-words">
                           {safeStringify(ledgerState.rawData)}
                         </pre>
                       </div>
