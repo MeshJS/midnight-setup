@@ -12,7 +12,7 @@
 ### Installation
 
 ```bash
-npm install @meshsdk/midnight-setup
+yarn add @meshsdk/midnight-setup
 ```
 
 ### Basic Usage
