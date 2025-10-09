@@ -11,6 +11,15 @@ import { Contract, type Witnesses } from "@midnight-setup/midnight-setup-contrac
 // Type for contract instance - using empty type parameter since our contract has no witnesses
 export type ContractInstance = Contract<unknown, Witnesses<unknown>>;
 
+// Type for deployed contract returned by deployContract/findDeployedContract
+export interface DeployedContract {
+  readonly deployTxData: {
+    readonly public: {
+      readonly contractAddress: string;
+    };
+  };
+}
+
 // Private state identifier for the contract
 export const MidnightSetupPrivateStateId = "midnight-setup-private-state";
 export type MidnightSetupPrivateStateId = typeof MidnightSetupPrivateStateId;

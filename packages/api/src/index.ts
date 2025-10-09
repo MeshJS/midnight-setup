@@ -10,6 +10,7 @@ import {
   ContractStateData,
   LedgerStateData,
   ContractInstance,
+  DeployedContract,
 } from "./common-types.js";
 
 export interface DeployedMidnightSetupAPI {
@@ -28,11 +29,10 @@ export class MidnightSetupAPI implements DeployedMidnightSetupAPI {
 
   private constructor(
     private providers: MidnightSetupContractProviders,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    public readonly allReadyDeployedContract: any,
+    public readonly deployedContract: DeployedContract,
     private logger?: Logger
   ) {
-    this.deployedContractAddress = allReadyDeployedContract.deployTxData.public.contractAddress;
+    this.deployedContractAddress = deployedContract.deployTxData.public.contractAddress;
 
     // Real state observable
     this.state = new Observable(subscriber => {
@@ -148,14 +148,14 @@ export class MidnightSetupAPI implements DeployedMidnightSetupAPI {
       
       // Real contract deployment using the wallet
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const deployedContract = await deployContract(
+      const deployedContract = (await deployContract(
         providers as any,
         {
           contract: contractInstance,
           initialPrivateState: initialPrivateState,
           privateStateId: MidnightSetupPrivateStateId,
         }
-      );
+      )) as DeployedContract;
 
       logger?.info("Contract deployed successfully", { 
         address: deployedContract.deployTxData.public.contractAddress 
@@ -184,7 +184,7 @@ export class MidnightSetupAPI implements DeployedMidnightSetupAPI {
       
       // Real contract join using the wallet
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const existingContract = await findDeployedContract(
+      const existingContract = (await findDeployedContract(
         providers as any,
         {
           contract: contractInstance,
@@ -192,7 +192,7 @@ export class MidnightSetupAPI implements DeployedMidnightSetupAPI {
           privateStateId: MidnightSetupPrivateStateId,
           initialPrivateState: initialPrivateState,
         }
-      );
+      )) as DeployedContract;
 
       logger?.info("Successfully joined contract", { 
         address: existingContract.deployTxData.public.contractAddress 
@@ -229,4 +229,4 @@ export * as utils from "./utils.js";
 export * from "./common-types.js";
 
 // Re-export types for external use
-export type { ContractStateData, LedgerStateData, ContractInstance } from "./common-types.js";
+export type { ContractStateData, LedgerStateData, ContractInstance, DeployedContract } from "./common-types.js";
