@@ -44,6 +44,7 @@ import {
   type DeployedMidnightSetupAPI,
   type TokenCircuitKeys,
 } from "@meshsdk/midnight-setup";
+import { Contract } from "@midnight-setup/midnight-setup-contract";
 import type { WalletAndProvider } from "./common-types";
 import type { Logger } from "pino";
 
@@ -203,14 +204,17 @@ export const resolve = async (
   logger: Logger,
   contractAddress?: ContractAddress
 ): Promise<DeployedMidnightSetupAPI> => {
+  const contractInstance = new Contract({});
   let api;
   if (contractAddress) {
-    api = await MidnightSetupAPI.joinMidnightSetupContract(
+    api = await MidnightSetupAPI.joinContract(
       providers,
-      contractAddress
+      contractInstance,
+      contractAddress,
+      logger
     );
   } else {
-    api = await MidnightSetupAPI.deployMidnightSetupContract(providers, logger);
+    api = await MidnightSetupAPI.deployContract(providers, contractInstance, logger);
   }
 
   return api;

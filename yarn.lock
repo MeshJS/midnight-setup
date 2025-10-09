@@ -1482,7 +1482,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@midnight-ntwrk/midnight-js-http-client-proof-provider@npm:^2.0.2":
+"@midnight-ntwrk/midnight-js-http-client-proof-provider@npm:2.0.2, @midnight-ntwrk/midnight-js-http-client-proof-provider@npm:^2.0.2":
   version: 2.0.2
   resolution: "@midnight-ntwrk/midnight-js-http-client-proof-provider@npm:2.0.2"
   dependencies:
@@ -1630,6 +1630,12 @@ __metadata:
   resolution: "@midnight-setup/midnight-setup-cli@workspace:packages/cli"
   dependencies:
     "@meshsdk/midnight-setup": "workspace:*"
+    "@midnight-ntwrk/dapp-connector-api": "npm:3.0.0"
+    "@midnight-ntwrk/midnight-js-fetch-zk-config-provider": "npm:2.0.2"
+    "@midnight-ntwrk/midnight-js-http-client-proof-provider": "npm:2.0.2"
+    "@midnight-ntwrk/midnight-js-indexer-public-data-provider": "npm:2.0.2"
+    "@midnight-ntwrk/midnight-js-level-private-state-provider": "npm:2.0.2"
+    "@midnight-ntwrk/midnight-js-network-id": "npm:2.0.2"
     "@midnight-setup/midnight-setup-contract": "workspace:*"
     "@types/jest": "npm:^29.5.12"
     "@types/ws": "npm:^8.5.9"
@@ -6842,15 +6848,15 @@ __metadata:
   linkType: hard
 
 "form-data@npm:^4.0.0":
-  version: 4.0.3
-  resolution: "form-data@npm:4.0.3"
+  version: 4.0.4
+  resolution: "form-data@npm:4.0.4"
   dependencies:
     asynckit: "npm:^0.4.0"
     combined-stream: "npm:^1.0.8"
     es-set-tostringtag: "npm:^2.1.0"
     hasown: "npm:^2.0.2"
     mime-types: "npm:^2.1.12"
-  checksum: 10c0/f0cf45873d600110b5fadf5804478377694f73a1ed97aaa370a74c90cebd7fe6e845a081171668a5476477d0d55a73a4e03d6682968fa8661eac2a81d651fcdb
+  checksum: 10c0/373525a9a034b9d57073e55eab79e501a714ffac02e7a9b01be1c820780652b16e4101819785e1e18f8d98f0aee866cc654d660a435c378e16a72f2e7cac9695
   languageName: node
   linkType: hard
 
@@ -9663,6 +9669,12 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.29.0"
     "@meshsdk/midnight-setup": "workspace:*"
+    "@midnight-ntwrk/dapp-connector-api": "npm:3.0.0"
+    "@midnight-ntwrk/midnight-js-fetch-zk-config-provider": "npm:2.0.2"
+    "@midnight-ntwrk/midnight-js-http-client-proof-provider": "npm:2.0.2"
+    "@midnight-ntwrk/midnight-js-indexer-public-data-provider": "npm:2.0.2"
+    "@midnight-ntwrk/midnight-js-level-private-state-provider": "npm:2.0.2"
+    "@midnight-ntwrk/midnight-js-network-id": "npm:2.0.2"
     "@midnight-setup/midnight-setup-contract": "workspace:*"
     "@originjs/vite-plugin-commonjs": "npm:^1.0.3"
     "@radix-ui/react-dialog": "npm:^1.1.14"
@@ -10241,9 +10253,9 @@ __metadata:
   linkType: hard
 
 "nwsapi@npm:^2.2.2":
-  version: 2.2.20
-  resolution: "nwsapi@npm:2.2.20"
-  checksum: 10c0/07f4dafa3186aef7c007863e90acd4342a34ba9d44b22f14f644fdb311f6086887e21c2fc15efaa826c2bc39ab2bc841364a1a630e7c87e0cb723ba59d729297
+  version: 2.2.22
+  resolution: "nwsapi@npm:2.2.22"
+  checksum: 10c0/b6a0e5ea6754aacfdfe551c8c0f1b374eaf94d48b0a4e7eac666f879ecbc1892ef1d7c457e9b02eefad3fa1323ea1faebcba533eeab6582e24c9c503411bf879
   languageName: node
   linkType: hard
 

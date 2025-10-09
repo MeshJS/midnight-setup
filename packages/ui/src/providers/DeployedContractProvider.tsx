@@ -1,5 +1,6 @@
 import useMidnightWallet from "@/hookes/useMidnightWallet";
 import { MidnightSetupAPI, type DeployedMidnightSetupAPI } from "@meshsdk/midnight-setup";
+import { Contract } from "@midnight-setup/midnight-setup-contract";
 import type { Logger } from "pino";
 import {
   createContext,
@@ -63,8 +64,10 @@ const DeployedContractProvider = ({
     setError(null);
 
     try {
-      const deployedAPI = await MidnightSetupAPI.joinMidnightSetupContract(
+      const contractInstance = new Contract({});
+      const deployedAPI = await MidnightSetupAPI.joinContract(
         walletContext.walletState.providers,
+        contractInstance,
         address,
         logger
       );
@@ -99,8 +102,10 @@ const DeployedContractProvider = ({
     setError(null);
 
     try {
-      const deployedAPI = await MidnightSetupAPI.deployMidnightSetupContract(
+      const contractInstance = new Contract({});
+      const deployedAPI = await MidnightSetupAPI.deployContract(
         walletContext.walletState.providers,
+        contractInstance,
         logger
       );
       

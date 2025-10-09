@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "build": "turbo run build",
-    "build:all": "cd packages/contract && npx turbo run build && cd ../api && npx turbo run build && cd ../cli && npx turbo run build && cd ../ui && npx turbo run build",
+    "build:all": "cd packages/contract && npx turbo run build && cd ../api && yarn build && cd ../cli && npx turbo run build && cd ../ui && npx turbo run build",
     "clean": "turbo run clean",
     "clean:cache": "rm -rf .turbo && rm -rf node_modules/.cache"
   },
@@ -67,8 +67,8 @@
   "packageManager": "yarn@4.9.2",
   "workspaces": [
     "compact",
-    "packages/ui",
     "packages/api",
+    "packages/ui",
     "packages/cli",
     "packages/contract"
   ]

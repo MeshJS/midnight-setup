@@ -1,15 +1,15 @@
 import { Observable } from "rxjs";
 import { ContractAddress } from "@midnight-ntwrk/compact-runtime";
 import { type Logger } from "pino";
-import { ledger, Contract } from "@midnight-setup/midnight-setup-contract";
+import { ledger } from "@midnight-setup/midnight-setup-contract";
 import { deployContract, findDeployedContract } from "@midnight-ntwrk/midnight-js-contracts";
-import * as utils from "./utils.js";
 import {
   MidnightSetupContractProviders,
   MidnightSetupPrivateStateId,
   DerivedMidnightSetupContractState,
   ContractStateData,
   LedgerStateData,
+  ContractInstance,
 } from "./common-types.js";
 
 export interface DeployedMidnightSetupAPI {
@@ -89,11 +89,25 @@ export class MidnightSetupAPI implements DeployedMidnightSetupAPI {
         try {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const ledgerState = ledger(contractState.data as any);
-          this.logger?.info("Ledger state parsed successfully");
+          
+          this.logger?.info("Ledger state parsed successfully", { 
+            messageLength: ledgerState.message?.length
+          });
+          
+          let decodedMessage = null;
+          if (ledgerState.message && ledgerState.message.length > 0) {
+            try {
+              decodedMessage = new TextDecoder().decode(ledgerState.message);
+            } catch (decodeError) {
+              this.logger?.warn("Failed to decode message", { error: decodeError });
+              decodedMessage = `[Binary data: ${ledgerState.message.length} bytes]`;
+            }
+          }
+          
           return {
             address: this.deployedContractAddress,
             ledgerState: {
-              message: ledgerState.message ? new TextDecoder().decode(ledgerState.message) : null,
+              message: decodedMessage,
             },
             blockHeight: contractState.blockHeight,
             blockHash: contractState.blockHash,
@@ -121,8 +135,9 @@ export class MidnightSetupAPI implements DeployedMidnightSetupAPI {
     }
   }
 
-  static async deployMidnightSetupContract(
+  static async deployContract(
     providers: MidnightSetupContractProviders,
+    contractInstance: ContractInstance,
     logger?: Logger
   ): Promise<MidnightSetupAPI> {
     logger?.info("Deploying contract...");
@@ -130,9 +145,6 @@ export class MidnightSetupAPI implements DeployedMidnightSetupAPI {
     try {
       // Get or create initial private state
       const initialPrivateState = await MidnightSetupAPI.getPrivateState(providers);
-      
-      // Create contract instance with constructor arguments
-      const contractInstance = new Contract({});
       
       // Real contract deployment using the wallet
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -158,8 +170,9 @@ export class MidnightSetupAPI implements DeployedMidnightSetupAPI {
     }
   }
 
-  static async joinMidnightSetupContract(
+  static async joinContract(
     providers: MidnightSetupContractProviders,
+    contractInstance: ContractInstance,
     contractAddress: string,
     logger?: Logger
   ): Promise<MidnightSetupAPI> {
@@ -168,9 +181,6 @@ export class MidnightSetupAPI implements DeployedMidnightSetupAPI {
     try {
       // Get or create initial private state
       const initialPrivateState = await MidnightSetupAPI.getPrivateState(providers);
-      
-      // Create contract instance
-      const contractInstance = new Contract({});
       
       // Real contract join using the wallet
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -219,4 +229,4 @@ export * as utils from "./utils.js";
 export * from "./common-types.js";
 
 // Re-export types for external use
-export type { ContractStateData, LedgerStateData } from "./common-types.js";
+export type { ContractStateData, LedgerStateData, ContractInstance } from "./common-types.js";

@@ -9,6 +9,7 @@ import { Logger } from "pino";
 import {
   type Ledger,
   ledger,
+  Contract,
 } from "@midnight-setup/midnight-setup-contract";
 import { MidnightSetupAPI } from "@meshsdk/midnight-setup";
 import { toHex } from "@midnight-ntwrk/midnight-js-utils";
@@ -90,8 +91,10 @@ const resolve = async (
     const choice = await rli.question(DEPLOY_OR_JOIN_QUESTION);
     switch (choice) {
       case "1":
-        api = await MidnightSetupAPI.deployMidnightSetupContract(
+        const contractInstance = new Contract({});
+        api = await MidnightSetupAPI.deployContract(
           providers,
+          contractInstance,
           logger
         );
         logger.info(
@@ -101,8 +104,10 @@ const resolve = async (
 
       case "2":
         const address = await rli.question("What is the contract address (in hex)?");
-        api = await MidnightSetupAPI.joinMidnightSetupContract(
+        const contractInstanceJoin = new Contract({});
+        api = await MidnightSetupAPI.joinContract(
           providers,
+          contractInstanceJoin,
           address,
           logger
         );

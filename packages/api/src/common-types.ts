@@ -6,6 +6,10 @@ import type {
   WalletProvider, 
   MidnightProvider 
 } from "@midnight-ntwrk/midnight-js-types";
+import { Contract, type Witnesses } from "@midnight-setup/midnight-setup-contract";
+
+// Type for contract instance - using empty type parameter since our contract has no witnesses
+export type ContractInstance = Contract<unknown, Witnesses<unknown>>;
 
 // Private state identifier for the contract
 export const MidnightSetupPrivateStateId = "midnight-setup-private-state";
