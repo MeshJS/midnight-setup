@@ -17,7 +17,7 @@ export const logger = pino({
   level: import.meta.env.VITE_LOGGING_LEVEL as string,
 });
 
-logger.trace('networkId = ', networkId);
+logger.trace(`networkId = ${networkId}`);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

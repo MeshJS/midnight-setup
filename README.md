@@ -158,22 +158,35 @@ function App() {
 
 ## Try the Project
 
-To test the complete setup locally:
+To test the complete setup locally, follow these steps strictly:
 
+- 1. Install dependencies
 ```bash
-# 1. Install dependencies
 yarn install
+```
 
-# 2. Build all packages
-yarn build:all
+- 2. Set environment variable
+```bash
+cd packages/ui && echo 'VITE_NETWORK_ID="TestNet"' > .env
+```
 
-# 3. Download fetch parameters
+- 3. Build all packages
+```bash
+cd ../../ && yarn build:all
+```
+
+- 4. Download fetch parameters
+```bash
 cd packages/cli && ./fetch-zk-params.sh
+```
 
-# 4. Start testnet with Docker
+- 5. Start testnet with Docker
+```bash
 docker-compose -f testnet.yml up -d
+```
 
-# 5. Run the frontend
+- 6. Run the frontend
+```bash
 cd ../ui && yarn start
 ```
 
