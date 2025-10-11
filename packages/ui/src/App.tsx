@@ -55,6 +55,33 @@ function App() {
     
     setIsLoadingState(true);
     try {
+      const contractState = await contractContext.midnightSetupApi.getContractState();
+      
+      // Parse the StateValue object manually since the API has issues with WebAssembly objects
+      try {
+        const { ledger } = await import('@midnight-setup/midnight-setup-contract');
+        const manualLedgerState = ledger(contractState.data as any);
+        
+        if (manualLedgerState.message) {
+          const decodedMessage = new TextDecoder().decode(manualLedgerState.message);
+          
+          const correctedLedgerState = {
+            address: contractState.address,
+            ledgerState: {
+              message: decodedMessage
+            },
+            blockHeight: contractState.blockHeight,
+            blockHash: contractState.blockHash
+          };
+          
+          setLedgerState(correctedLedgerState);
+          return;
+        }
+      } catch (manualError) {
+        console.error("Manual parsing failed:", manualError);
+      }
+      
+      // Fallback to API if manual parsing fails
       const state = await contractContext.midnightSetupApi.getLedgerState();
       setLedgerState(state);
     } catch (error) {

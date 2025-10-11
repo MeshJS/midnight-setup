@@ -196,3 +196,9 @@ cd ../ui && yarn start
   <p><img src="packages/ui/public/mesh-logo.svg" alt="MeshJS Logo" width="30" height="20" style="vertical-align: middle; margin-right: 8px;" /> Powered by <a href="https://meshjs.dev/">MeshJS Team</a></p>
   <p>Built with ❤️ on Midnight Network</p>
 </div>
+
+
+
+
+
+02000027d8e9def58284132610a22f3e65b4ed78de4f5f900ab38015b06f9958f30b

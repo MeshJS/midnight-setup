@@ -84,15 +84,15 @@ export class MidnightSetupAPI implements DeployedMidnightSetupAPI {
       
       const contractState = await this.getContractState();
       
-      if (contractState.data) {
-        // Try to parse the ledger state
-        try {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          const ledgerState = ledger(contractState.data as any);
-          
-          this.logger?.info("Ledger state parsed successfully", { 
-            messageLength: ledgerState.message?.length
-          });
+        if (contractState.data) {
+          // Try to parse the ledger state
+          try {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const ledgerState = ledger(contractState.data as any);
+            
+            this.logger?.info("Ledger state parsed successfully", { 
+              messageLength: ledgerState.message?.length
+            });
           
           let decodedMessage = null;
           if (ledgerState.message && ledgerState.message.length > 0) {
