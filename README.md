@@ -161,8 +161,15 @@ function App() {
 To test the complete setup locally, follow these steps strictly:
 
 - 1. Clone the repository
+
+- using https:
 ```bash
 git clone https://github.com/MeshJS/midnight-setup.git
+```
+
+- using ssh:
+```bash
+git clone git@github.com:MeshJS/midnight-setup.git
 ```
 
 - 2. Navigate to the folder
