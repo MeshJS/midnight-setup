@@ -160,37 +160,45 @@ function App() {
 
 To test the complete setup locally, follow these steps strictly:
 
-- 1. Install dependencies
+- 1. Clone the repository
+```bash
+git clone https://github.com/MeshJS/midnight-setup.git
+```
+
+- 2. Navigate to the folder
+```bash
+cd midnight-setup
+```
+
+- 3. Install dependencies
 ```bash
 yarn install
 ```
 
-- 2. Set environment variable
+- 3. Set environment variable
 ```bash
 cd packages/ui && echo 'VITE_NETWORK_ID="TestNet"' > .env
 ```
 
-- 3. Build all packages
+- 5. Build all packages
 ```bash
 cd ../../ && yarn build:all
 ```
 
-- 4. Download fetch parameters
+- 6. Download fetch parameters
 ```bash
 cd packages/cli && ./fetch-zk-params.sh
 ```
 
-- 5. Start testnet with Docker
+- 7. Start testnet with Docker
 ```bash
 docker-compose -f testnet.yml up -d
 ```
 
-- 6. Run the frontend
+- 8. Run the frontend
 ```bash
 cd ../ui && yarn start
 ```
-
-
 
 ## Resources
 
