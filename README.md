@@ -183,8 +183,15 @@ yarn install
 ```
 
 - 3. Set environment variable
+
+- TestNet:
 ```bash
 cd packages/ui && echo 'VITE_NETWORK_ID="TestNet"' > .env
+```
+
+- Undeployed
+```bash
+cd packages/ui && echo 'VITE_NETWORK_ID="Undeployed"' > .env
 ```
 
 - 5. Build all packages
@@ -205,6 +212,43 @@ docker-compose -f testnet.yml up -d
 - 8. Run the frontend
 ```bash
 cd ../ui && yarn start
+```
+
+### Configure Wallet
+
+- Open **Midnight Lace Wallet**
+- Go to **Settings** → **Network**
+- Select:
+  - **TestNet** for Option A
+  - **Undeployed** for Option B (Standalone infrastructure)
+
+**Recommendation:** for full testing, use **Standalone (local)** and set the wallet to **Undeployed** with the local node in the Lace Wallet.
+
+#### Lace Wallet (Other versions)
+
+If you hit issues with Preview, install the legacy Lace Wallet extension:
+
+1. Sign in to download:
+   - [Lace Wallet versions](https://chrome-stats.com/d/hgeekaiplokcnmakghbdfbgnlfheichg/download)
+
+2. Download `.crx` file with version **2.34.0**.
+3. In Chrome, open `chrome://extensions`.
+4. Enable **Developer mode** (top-right).
+5. Click **Load unpacked** and select the extracted extension folder.
+
+After installing, set the Lace Wallet to **Undeployed** and set the Proof Server to **Local**.
+
+- Now, you can deposit test tokens to your wallet:
+
+- Open a new terminal and go to `cli` folder:
+```bash
+cd packages/cli
+```
+
+- Then run:
+
+```sh
+yarn deposit mn_shield-addr_undeployed...
 ```
 
 ## Resources
