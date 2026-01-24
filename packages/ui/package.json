@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "start": "http-server --port 0 ./dist",
+    "prestart": "mkdir -p ./dist/keys && cp -r ../contract/dist/managed/midnight-setup/keys/* ./dist/keys/ 2>/dev/null || true && mkdir -p ./dist/zkir && cp -r ../contract/dist/managed/midnight-setup/zkir/* ./dist/zkir/ 2>/dev/null || true",
     "build": "tsc && vite build --mode testnet && cp public/mesh-logo.svg dist/mesh-logo.svg",
     "lint": "eslint .",
     "preview": "vite preview"
