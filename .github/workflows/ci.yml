@@ -34,6 +34,9 @@ jobs:
           set -euo pipefail
           mkdir -p packages/contract/src/managed/midnight-setup
           compact compile packages/contract/src/midnight-setup.compact packages/contract/src/managed/midnight-setup
+          if [ ! -f packages/contract/src/managed/midnight-setup/contract/index.cjs ] && [ -f packages/contract/src/managed/midnight-setup/contract/index.js ]; then
+            cp packages/contract/src/managed/midnight-setup/contract/index.js packages/contract/src/managed/midnight-setup/contract/index.cjs
+          fi
           if [ ! -f packages/contract/src/managed/midnight-setup/contract/index.cjs ]; then
             echo "compact output not found; listing managed tree for debugging:"
             find packages/contract/src/managed -maxdepth 5 -type f
