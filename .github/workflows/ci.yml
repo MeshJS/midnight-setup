@@ -32,7 +32,12 @@ jobs:
       - name: Generate compact artifacts
         run: |
           set -euo pipefail
+          mkdir -p packages/contract/src/managed/midnight-setup
           compact compile packages/contract/src/midnight-setup.compact packages/contract/src/managed/midnight-setup
-          ls -la packages/contract/src/managed/midnight-setup/contract/index.cjs
+          if [ ! -f packages/contract/src/managed/midnight-setup/contract/index.cjs ]; then
+            echo "compact output not found; listing managed tree for debugging:"
+            find packages/contract/src/managed -maxdepth 5 -type f
+            exit 1
+          fi
       - name: Build all packages
         run: yarn build:all
