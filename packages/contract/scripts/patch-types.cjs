@@ -4,7 +4,7 @@ const path = require("node:path");
 
 const root = path.resolve(__dirname, "..");
 const distIndex = path.join(root, "dist", "index.d.ts");
-const managedDts = "./managed/midnight-setup/contract/index";
+const managedDts = "./managed/midnight-setup/contract/index.d.ts";
 
 const content = [
   `export * from "${managedDts}";`,
