@@ -42,5 +42,15 @@ jobs:
             find packages/contract/src/managed -maxdepth 5 -type f
             exit 1
           fi
-      - name: Build all packages
-        run: yarn build:all
+      - name: Build contract
+        run: yarn --cwd packages/contract build
+      - name: Debug contract types
+        run: |
+          set -euo pipefail
+          sed -n '1,20p' packages/contract/dist/index.d.ts
+      - name: Build api
+        run: yarn --cwd packages/api build
+      - name: Build cli
+        run: yarn --cwd packages/cli build
+      - name: Build ui
+        run: yarn --cwd packages/ui build
