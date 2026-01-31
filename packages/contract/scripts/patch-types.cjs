@@ -4,17 +4,17 @@ const path = require("node:path");
 
 const root = path.resolve(__dirname, "..");
 const distIndex = path.join(root, "dist", "index.d.ts");
-const managedDts = path.join(
-  root,
-  "dist",
-  "managed",
-  "midnight-setup",
-  "contract",
-  "index.d.ts"
-);
+const candidates = [
+  path.join(root, "dist", "managed", "midnight-setup", "contract", "index.d.ts"),
+  path.join(root, "dist", "managed", "midnight-setup", "contract", "index.d.cts"),
+  path.join(root, "src", "managed", "midnight-setup", "contract", "index.d.ts"),
+  path.join(root, "src", "managed", "midnight-setup", "contract", "index.d.cts")
+];
 
-if (!fs.existsSync(managedDts)) {
-  console.error(`[patch-types] Missing generated types: ${managedDts}`);
+const managedDts = candidates.find((p) => fs.existsSync(p));
+if (!managedDts) {
+  console.error("[patch-types] Missing generated types. Searched:");
+  for (const p of candidates) console.error(`- ${p}`);
   process.exit(1);
 }
 
