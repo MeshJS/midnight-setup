@@ -43,14 +43,14 @@ jobs:
             exit 1
           fi
       - name: Build contract
-        run: yarn --cwd packages/contract build
+        run: npx turbo run build --no-cache --cwd packages/contract
       - name: Debug contract types
         run: |
           set -euo pipefail
           sed -n '1,20p' packages/contract/dist/index.d.ts
       - name: Build api
-        run: yarn --cwd packages/api build
+        run: npx turbo run build --no-cache --cwd packages/api
       - name: Build cli
-        run: yarn --cwd packages/cli build
+        run: npx turbo run build --no-cache --cwd packages/cli
       - name: Build ui
-        run: yarn --cwd packages/ui build
+        run: npx turbo run build --no-cache --cwd packages/ui
