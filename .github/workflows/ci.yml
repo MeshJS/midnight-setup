@@ -34,6 +34,11 @@ jobs:
           awk '{print $1"  /tmp/'"${asset}"'"}' "/tmp/${asset}.sha256" | shasum -a 256 -c -
           mkdir -p /tmp/compact
           tar -xJf "/tmp/${asset}" -C /tmp/compact
-          echo "/tmp/compact" >> "$GITHUB_PATH"
+          compact_bin_dir="/tmp/compact/compact-x86_64-unknown-linux-musl"
+          if [ -z "${compact_bin_dir}" ]; then
+            echo "compact binary not found after extract"
+            exit 1
+          fi
+          echo "${compact_bin_dir}" >> "$GITHUB_PATH"
       - name: Build all packages
         run: yarn build:all
