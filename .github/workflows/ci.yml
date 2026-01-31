@@ -29,5 +29,10 @@ jobs:
           compact update
           compact check
           compact --version
+      - name: Generate compact artifacts
+        run: |
+          set -euo pipefail
+          compact compile packages/contract/src/midnight-setup.compact packages/contract/src/managed/midnight-setup
+          ls -la packages/contract/src/managed/midnight-setup/contract/index.cjs
       - name: Build all packages
         run: yarn build:all
