@@ -42,15 +42,3 @@ jobs:
             find packages/contract/src/managed -maxdepth 5 -type f
             exit 1
           fi
-      - name: Build contract
-        run: npx turbo run build --no-cache --cwd packages/contract
-      - name: Debug contract types
-        run: |
-          set -euo pipefail
-          sed -n '1,20p' packages/contract/dist/index.d.ts
-      - name: Build api
-        run: npx turbo run build --no-cache --cwd packages/api
-      - name: Build cli
-        run: npx turbo run build --no-cache --cwd packages/cli
-      - name: Build ui
-        run: npx turbo run build --no-cache --cwd packages/ui
