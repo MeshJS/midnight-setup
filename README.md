@@ -155,6 +155,10 @@ function App() {
 }
 ```
 
+## Testing
+
+Automated tests are not yet available. CI currently validates builds only.
+Planned test coverage is tracked in `ROADMAP.md`.
 
 ## Try the Project
 
