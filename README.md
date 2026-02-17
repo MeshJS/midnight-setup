@@ -164,7 +164,7 @@ Planned test coverage is tracked in `ROADMAP.md`.
 
 To test the complete setup locally, follow these steps strictly:
 
-- 1. Clone the repository
+- i) Clone the repository
 
 - using https:
 ```bash
@@ -176,17 +176,17 @@ git clone https://github.com/MeshJS/midnight-setup.git
 git clone git@github.com:MeshJS/midnight-setup.git
 ```
 
-- 2. Navigate to the folder
+- ii) Navigate to the folder
 ```bash
 cd midnight-setup
 ```
 
-- 3. Install dependencies
+- iii) Install dependencies
 ```bash
 yarn install
 ```
 
-- 3. Set environment variable
+- iv) Set environment variable
 
 - TestNet:
 ```bash
@@ -198,22 +198,22 @@ cd packages/ui && echo 'VITE_NETWORK_ID="TestNet"' > .env
 cd packages/ui && echo 'VITE_NETWORK_ID="Undeployed"' > .env
 ```
 
-- 5. Build all packages
+- v) Build all packages
 ```bash
 cd ../../ && yarn build:all
 ```
 
-- 6. Download fetch parameters
+- vi) Download fetch parameters
 ```bash
 cd packages/cli && ./fetch-zk-params.sh
 ```
 
-- 7. Start testnet with Docker
+- vii) Start testnet with Docker
 ```bash
 docker-compose -f testnet.yml up -d
 ```
 
-- 8. Run the frontend
+- viii) Run the frontend
 ```bash
 cd ../ui && yarn start
 ```
