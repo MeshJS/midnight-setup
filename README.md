@@ -234,6 +234,7 @@ If you hit issues with Preview, install the legacy Lace Wallet extension:
 
 1. Sign in to download:
    - [Lace Wallet versions](https://chrome-stats.com/d/hgeekaiplokcnmakghbdfbgnlfheichg/download)
+   - Note: it is no longer possible to download it for free (2.34.0); see the next step.
 
 2. Download `.crx` file with version **2.34.0** that can be found [here](/lace-versions/2.34.0/hgeekaiplokcnmakghbdfbgnlfheichg.crx). 
 3. In Chrome, open `chrome://extensions`.
